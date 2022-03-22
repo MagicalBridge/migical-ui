@@ -22,12 +22,18 @@ interface BaseButtonProps {
   href?: string;
 }
 
-const Button: React.FC<BaseButtonProps> = (props) => {
+type NativeButtonProps = BaseButtonProps & React.ButtonHTMLAttributes<HTMLElement>
+type AnchorButtonProps = BaseButtonProps & React.AnchorHTMLAttributes<HTMLElement>
+
+export type ButtonProps = Partial<NativeButtonProps & AnchorButtonProps>
+
+const Button: React.FC<ButtonProps> = (props) => {
   const {
-    btnType, disabled, size, children, href
+    btnType, disabled, size, children, href, className,
+    ...restProps
   } = props
   // 默认给按钮添加 btn btn-lg  btn-primary
-  const classes = classnames('btn', {
+  const classes = classnames('btn', className, {
     [`btn-${btnType}`]: btnType,
     [`btn-${size}`]: size,
     'disabled': (btnType === ButtonType.Link) && disabled
@@ -36,6 +42,7 @@ const Button: React.FC<BaseButtonProps> = (props) => {
   if (btnType === ButtonType.Link && href) {
     return (
       <a
+        {...restProps}
         className={classes}
         href={href}
       >
@@ -45,6 +52,7 @@ const Button: React.FC<BaseButtonProps> = (props) => {
   } else {
     return (
       <button
+        {...restProps}
         className={classes}
         disabled={disabled}
       >

@@ -8,7 +8,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <Button disabled>hello</Button>
+        <Button onClick={(e)=>{e.preventDefault(); alert(124)}}>hello</Button>
         <Button btnType={ButtonType.Primary}>Primary hello</Button>
         <Button size={ButtonSize.Small} btnType={ButtonType.Danger}>Small hello</Button>
         <Button size={ButtonSize.Large}>Large hello</Button>
