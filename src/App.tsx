@@ -7,6 +7,10 @@ import './styles/index.scss';
 function App() {
   return (
     <div className="App">
+        {/* <form action="/upload" method="post" encType="multipart/form-data">
+          <input type="file" accept="video/*" capture="user"/>
+          <input type="submit" value="上传"/>
+        </form> */}
       <header className="App-header">
         <Button onClick={(e)=>{e.preventDefault(); alert(124)}}>hello</Button>
         <Button btnType={ButtonType.Primary}>Primary hello</Button>
@@ -14,18 +18,6 @@ function App() {
         <Button size={ButtonSize.Large}>Large hello</Button>
         <Button btnType={ButtonType.Link} href="www.baidu.com">baidu</Button>
         <Button disabled btnType={ButtonType.Link} href="www.baidu.com">baidu</Button>
-        {/* <img src={logo} className="App-logo" alt="logo" /> */}
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
       </header>
     </div>
   );
